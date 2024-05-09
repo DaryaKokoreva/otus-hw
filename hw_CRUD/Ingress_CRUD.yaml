@@ -1,16 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: dasha-k8s-ig
+  name: usercrud-k8s-ig
 spec:
   rules:
   - host: arch.homework
     http:
       paths:
-      - path: /health
+      - path: /
         pathType: Prefix
         backend:
           service:
-            name: dasha-k8s-sv
+            name: usercrud-k8s-sv
             port:
               number: 80
