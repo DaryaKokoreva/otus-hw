@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usercrud
+  labels:
+    app: usercrud
+spec:
+  replicas: 2
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      env: prod
+  template:
+    metadata:
+      labels:
+        env: prod
+    spec:
+      containers:
+      - name: usercrud
+        image: daryakokoreva/usercrud
+        ports:
+        - containerPort: 8000
+        env:
+        - name: SERVER_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: usercrud-cm
+              key: port
+        - name: DATABASE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: usercrud-cm
+              key: dburl
+        - name: DATABASE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: usercrud-secret
+              key: username
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: usercrud-secret
+              key: password                   

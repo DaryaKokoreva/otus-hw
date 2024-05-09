@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: usercrud-cm
+data:
+  port: "8000"
+  dburl: "jdbc:h2:mem:testdb;NON_KEYWORDS=user"
+  
