@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS webuser (
+  id SERIAL PRIMARY KEY, 
+  username VARCHAR(255), 
+  firstName VARCHAR(255), 
+  lastName VARCHAR(255), 
+  email VARCHAR(255), 
+  phone VARCHAR(255)
+);
+
+CREATE SEQUENCE IF NOT EXISTS user_seq START 101;

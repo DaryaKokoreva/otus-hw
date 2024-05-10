@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: usercrud-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: migration
+        image: postgres
+        command: ["psql", "-h usercrud-db-postgresql.default.svc.cluster.local", "-U testuser", "-d testdb", "-a -f /var/dump/dump.sql"]
+        volumeMounts:
+        - mountPath: /var/dump
+          name: dump-volume
+      restartPolicy: OnFailure
+      volumes:
+      - name: dump-volume
+        hostPath:
+          path: ./dump
+          type: Directory
+
+    
+      

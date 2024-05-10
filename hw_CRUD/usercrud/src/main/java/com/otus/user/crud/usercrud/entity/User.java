@@ -3,6 +3,7 @@ package com.otus.user.crud.usercrud.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "webuser")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
