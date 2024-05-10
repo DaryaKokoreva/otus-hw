@@ -4,5 +4,5 @@ metadata:
   name: usercrud-cm
 data:
   port: "8000"
-  dburl: "jdbc:h2:mem:testdb;NON_KEYWORDS=user"
+  dburl: "jdbc:postgresql://usercrud-db-postgresql.default.svc.cluster.local:5432/postgres"
   

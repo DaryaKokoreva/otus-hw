@@ -29,7 +29,7 @@ curl -v -X POST -H 'Content-Type: application/json' -d '{
   "lastName": "Doe",
   "email": "bestjohn@doe.com",
   "phone": "+71002003040"
-}' http://localhost:8080/user
+}' http://arch.homework/user
 ```
 
 Получение
