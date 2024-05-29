@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: usercrud
   labels:
-    app: usercrud
+    app: usercrud-app
 spec:
   replicas: 1
   minReadySeconds: 10
